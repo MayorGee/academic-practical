@@ -1,0 +1,21 @@
+{% layout '../index-layout.liquid', title: 'Mentors Page' %}
+    {% assign mentors = this.getMentors %}
+
+    {% block content %}
+        <div class="mentors">
+            <ul class="mentors-list">
+                {% for mentor in mentors %}
+                    <li class="mentors-list__item">
+                        {{ mentor.firstName }} {{ mentor.lastName }} 
+                        <span class="delete-mentor">
+                            <a 
+                                href="/delete-mentor?id={{ mentor.id }}"
+                                class="delete-mentor__link">
+                                <button class="delete-mentor__btn">Delete</button>
+                            </a>
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endblock %}

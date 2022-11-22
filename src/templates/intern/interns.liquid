@@ -1,0 +1,24 @@
+{% layout '../index-layout.liquid', title: 'Interns Page' %}
+    {% assign interns = this.getInterns %}
+
+    {% block content %}
+        <div class="interns">
+            <ol class="interns-list">
+                {% for intern in interns %}
+                    <li class="interns-list__item">
+                        <p  
+                            class="interns-list__description"
+                        >
+                            {{ intern.lastName | capitalize }} {{ intern.firstName | capitalize }}, {{ intern.Age }} years old
+                        </p>
+                        <a 
+                            href="/delete-intern?id={{ intern.id }}"
+                            class="delete-intern"
+                        >
+                            <button class="delete-intern__btn">Delete</button>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endblock %}

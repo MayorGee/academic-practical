@@ -1,0 +1,9 @@
+{% layout './index-layout.liquid', title: 'Internship Page' %}
+    {% assign internship = this.getInternship %}
+
+    {% block content %}
+        <div class="internship">
+            <p class="internship__detail">Internship Title: {{ internship.title }} </p>
+            <p class="internship__detail">Internship Year: {{ internship.internshipYear }} </p>
+        </div>
+    {% endblock %}

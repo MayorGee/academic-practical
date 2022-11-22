@@ -1,0 +1,41 @@
+{% layout './index-layout.liquid', title: 'Intern Login' %}
+
+    {% block content %}
+        <form
+            action="/intern-login"
+            method="post"
+            class="login-form"
+        >
+            <input
+                type="hidden"
+                name="csrfToken"
+                value={{ csrfToken }}
+            />
+
+            <div class="login-form__item">
+                <input
+                    type="email"
+                    name="internEmail"
+                    class="login-form__input"
+                    placeholder="Email"
+                />
+            </div>
+
+            <div class="login-form__item">
+                <input
+                    type="password"
+                    name="internPassword"
+                    class="login-form__input"
+                    placeholder="Password"
+                />
+            </div>
+
+            <button 
+                type="submit"
+                class="login-form__btn"
+            >
+                Login
+            </button>
+        </form>
+    {% endblock %}
+        

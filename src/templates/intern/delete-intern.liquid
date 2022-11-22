@@ -1,0 +1,41 @@
+{% layout '../index-layout.liquid', title: 'Intern Delete Form' %}
+    {% assign intern = this.getIntern %}
+
+    {% block content %}
+        <form 
+            action="/delete-intern"
+            method="post"
+            class="warning"
+        >
+            <p class="warning__message">
+                Are you sure you want to delete {{ intern.firstName }} {{ intern.lastName }} from the database?
+            </p>
+
+            <input 
+                type="hidden"
+                name="id"
+                value= {{ intern.id }}
+            />
+
+            <input
+                type="hidden"
+                name="csrfToken"
+                value={{ csrfToken }}
+            />
+            
+            <div class="warning__buttons">
+                <button 
+                    type="submit"
+                    class="warning__proceed-btn"
+                >
+                    Proceed
+                </button>
+                <button 
+                    href="/interns"
+                    class="warning__exit-btn"
+                >
+                    Back
+                </button>
+            </div> 
+        </form>
+    {% endblock %}
